@@ -1,5 +1,5 @@
-# X-Serv-14.5-ServAplicaciones
-Ejercicio 14.5 - Clase servidor de aplicaciones
+# X-Serv-14.6-ServAplicaciones
+Ejercicio 14.6 - Clase servidor de aplicaciones
 
 ## Enunciado
 
