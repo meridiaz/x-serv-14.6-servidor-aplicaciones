@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """
 webApp class
@@ -12,8 +12,10 @@ webApp class
 
 import socket
 
+def dihola():
+    return("hola")
 
-class webApp:
+class webApp():
     """Root of a hierarchy of classes implementing web applications
 
     This class does almost nothing. Usually, new classes will
@@ -49,16 +51,16 @@ class webApp:
         # parse and process methods (in a loop)
 
         while True:
-            print 'Waiting for connections'
+            print('Waiting for connections')
             (recvSocket, address) = mySocket.accept()
-            print 'HTTP request received (going to parse and process):'
-            request = recvSocket.recv(2048)
-            print request
+            print('HTTP request received (going to parse and process):')
+            request = str(recvSocket.recv(2048))
+            print(request)
             parsedRequest = self.parse(request)
             (returnCode, htmlAnswer) = self.process(parsedRequest)
-            print 'Answering back...'
-            recvSocket.send("HTTP/1.1 " + returnCode + " \r\n\r\n"
-                            + htmlAnswer + "\r\n")
+            print('Answering back...')
+            recvSocket.send(b"HTTP/1.1 " + bytes(returnCode, "utf-8") + b" \r\n\r\n"
+                            + bytes(htmlAnswer, "utf-8") + b"\r\n")
             recvSocket.close()
 
 if __name__ == "__main__":
